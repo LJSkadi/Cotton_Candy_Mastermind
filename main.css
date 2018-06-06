@@ -1,0 +1,167 @@
+body{
+margin: 0;
+    padding: 0;
+ background: linear-gradient(#315CB2, #33302A);
+ font-family: 'Ubuntu Mono', monospace;
+ color: chartreuse;
+}
+
+.board{
+    background: linear-gradient( #33302A, #333333);
+    width: 30%;
+    min-width: 450px;
+    height: 96vh;
+    margin: 2vh auto;
+    border: 1px solid black;
+    box-shadow: 10px 10px 15px black;
+}
+
+.flexer{
+    display: flex;
+}
+
+
+/*****************CODE****************/
+.answer-container{
+width: 100%;
+height: 10%;
+padding-top: 2%;
+border: 1px solid black;
+}
+
+.answer-box{
+width: 70%;
+height: 100%;
+border: 1px solid black
+}
+
+.answer{
+    width: 70%;
+    height: 80%;
+    border: 1px solid black;
+    margin: 0 auto;
+    background: linear-gradient( grey,red);
+    box-shadow: 2px 0px 4px; white;
+}
+
+.button-container{
+    width: 30%;
+height: 100%;
+border: 1px solid black;
+}
+
+.submit-btn{
+    width: 80%;
+    height: 80%;
+    background: linear-gradient(darkgreen, black);
+    margin: auto;
+    text-align: center;
+    line-height: 200%;
+    box-shadow: 2px 2px 4px grey;
+}
+
+.text{
+    margin: 0 auto;
+
+}
+/*****************SUGGESTION****************/
+.guess-container{
+    width: 100%;
+    height: 80%;
+    border: 1px solid black;
+}
+
+.guess-row{
+height: 10%;
+width: 100%;
+border: 1px solid black;
+}
+
+.guess-pegs{
+height: 100%;
+width: 70%;
+padding: 0 5%;
+border: 1px solid black;
+}
+
+.guess-peg{
+   width: 24%;
+   height: 100%;
+   border: 1px solid white;
+   border-radius: 50%;
+   margin-left: 2%;
+   background: linear-gradient( grey, darkgreen)
+
+}
+
+.grade-pegs{
+
+    height: 100%;
+width: 30%;
+flex-wrap: wrap;
+padding: 0 5%;
+border: 1px solid black;
+}
+
+.grade-peg{
+    box-sizing: border-box;
+    width: 40%;
+    height: 50%;
+    border: 1px solid black;
+    margin-left: 5%;
+    border-radius: 50%;
+}
+/*****************Keypad****************/
+.selection-container{
+    width: 100%;
+    height: 10%;
+    border: 1px solid white;
+    padding-top: 2px;
+}
+.selector-outer{
+    box-sizing: border-box;
+    width: 16%;
+    height: 88%;
+    border-radius: 50%;
+    margin: 0 .25px;
+    border: 1px solid white;
+}
+
+.selector-outer:hover{
+    border: 1px solid red
+}
+
+.selector-inner{
+    box-sizing: border-box;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin: 18% 18% 22% 22%;
+}
+
+.selector-outer:hover{
+    border: 1px solid yellow
+}
+
+.red{
+    background-color: red
+}
+
+.green{
+    background-color: green
+}
+
+.yellow{
+    background-color: yellow
+}
+
+.black{
+    background-color: black
+}
+.white{
+    background-color: white
+}
+.brown{
+    background-color: brown
+}
