@@ -2,8 +2,8 @@ $(document).ready(function () {
 
     var guess = 0;
     var selectedColor = '';
-    var bGround = 'rgb(0, 128, 0) linear-gradient(grey, darkgreen) repeat scroll 0% 0% / auto padding-box border-box';
-    $('.submit-btn').hide();
+    var bGround = 'rgb(0, 128, 0) linear-gradient(#484848, #333333) repeat scroll 0% 0% / auto padding-box border-box';
+    $('.submit-displayEvaluation').hide();
     var clickCount = 0;
     var isSelected = false;
     var solutionArray = pickACode();
@@ -11,7 +11,8 @@ $(document).ready(function () {
     var tempRay = $('.guess-history');
     var guessBoxArray = [];
     var nextFeedback = $($('.first-grade')[0]).parent()[0];
-
+    var prompt = $('.prompt');
+    prompt.hide();
     for (var i = 9; i >= 0; i--) {
         guessBoxArray.push(tempRay[i]);
     }
@@ -46,19 +47,20 @@ $(document).ready(function () {
 
 
     // Inactivates the keypad for the acual guessing round
-    $('.submit-btn').click(function () {
+    $('.submit-area').click(function () {
         $('.active').removeClass('active');
         var feedbackArray = getGrade();
-        console.log(feedbackArray); //This array is evaluation of the guess
+        checkWin(feedbackArray);
+        //console.log(feedbackArray); //This array is evaluation of the guess
         // console.log(solutionArray); //This array is the solution code
         var feedbackBox = getfeedbackBox ();
-        placePegs(feedbackArray, feedbackBox);
+        displayEvaluation(feedbackArray, feedbackBox);
         //console.log(feedbackBox);
         guess++;
         for (var i = 0; i < 4; i++) {
             $(`#g-${guess}-${i}`).addClass('active');
         }
-        $('.submit-btn').hide();
+        $('.submit-area').hide();
     })
     //console.log(tempRay)
     //console.log(guessBoxArray)
@@ -89,7 +91,7 @@ $(document).ready(function () {
                     updateMasterArray(selectedColor, coord);
                     clickCount++;
                     if (clickCount === 4) {
-                        $('.submit-btn').show();
+                        $('.submit-area').show();
                         clickCount = 0;
                     }
                 } else { //digit removed
@@ -182,14 +184,23 @@ $(document).ready(function () {
     return activeFeedback;
     }
 
-    function placePegs(ray, box){
+    function displayEvaluation(ray, box){
         var pegRay = box.getElementsByClassName("feedback-index");
         console.log(pegRay);
         for (var i = 0; i < ray.length; i++){
             // Take an element of the pegRay and add a class
             $(pegRay[i]).addClass(`${ray[i]}`);
         }
-        $('.position').css('background-color', 'none').css('background-color', '#00ccff');
-        $('.color').css('background-color', 'none').css('background-color', '#ff66ff');
+        $('.position').css('background-color', 'none').css('background-color', '#00ccff'); //turquise is right position
+        $('.color').css('background-color', 'none').css('background-color', '#ff66ff'); //pink is right color
     }
+    function checkWin(array){
+        //console.log(array);
+        var arrayToString = array.join();
+        if (arrayToString === "position, position, position, position"){
+        //console.log("You win");
+        prompt.show;
+        }
+    }
+
 });
